@@ -50,4 +50,4 @@ python app.py
 - `CLOUDFLARE_API_TOKEN`
 - `CLOUDFLARE_ACCOUNT_ID`
 
-后端需要单独部署到支持Python的服务器，并配置环境变量`OPENAI_API_KEY`。 
+后端需要单独部署到支持Python的服务器，并配置环境变量`OPENAI_API_KEY`。
