@@ -1,18 +1,25 @@
+// vite.config.js
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import path from 'path' // 必须添加
+import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
+  base: '/', // Cloudflare必须用根路径
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src') // 绝对路径配置
+      '@': path.resolve(__dirname, './src')
     }
   },
   build: {
     outDir: 'dist',
+    assetsDir: 'assets',
     rollupOptions: {
-      external: [] // 确保不为空数组
+      output: {
+        entryFileNames: 'assets/[name].[hash].js',
+        chunkFileNames: 'assets/[name].[hash].js',
+        assetFileNames: 'assets/[name].[hash][extname]'
+      }
     }
   }
 })
