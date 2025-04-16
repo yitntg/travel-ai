@@ -1,11 +1,15 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import path from 'path'; // 需要新增的导入
 
 export default defineConfig({
   plugins: [react()],
-  base: './', // 关键：确保资源路径正确
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src') // 关键配置
+    }
+  },
   build: {
-    outDir: 'dist',
-    emptyOutDir: true
+    outDir: 'dist'
   }
-})
+});
